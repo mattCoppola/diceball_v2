@@ -1,4 +1,4 @@
-import randomDiceRoll from '../diceroll/diceroll';
+import randomDiceRoll from '../../diceroll/diceroll';
 
 const pitch = () => {
 	const result = randomDiceRoll();

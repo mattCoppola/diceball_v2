@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 
 // Import Components
 import DefenseActions from './components/DefenseActions';
+import GameOutput from './components/GameOutput';
 
 import './style.css';
 
@@ -17,19 +18,6 @@ class GameStats extends React.Component {
 				<p>Strikes: {stats.strikes}</p>
 				<p>Balls: {stats.balls}</p>
 				<p>Outs: {stats.outs}</p>
-			</div>
-		);
-	}
-}
-
-class GameOutput extends React.Component {
-	render () {
-		const output = this.props.output.map((action) => <p key={Math.random()}>{action}</p>);
-
-		return (
-			<div className="ui column raised container">
-				<h1 className="ui header">Game Output</h1>
-				<div className="game-output">{output}</div>
 			</div>
 		);
 	}
@@ -89,9 +77,10 @@ class GameConsole extends React.Component {
 	}
 
 	handleDefenseAction (defenseAction) {
+		let defense = '[DEF >>> ] ';
 		this.setState((state) => {
 			const output = [
-				defenseAction,
+				defense.concat(defenseAction),
 				...state.output
 			];
 			return { output };
