@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+// Import Components
+import DefenseActions from './components/DefenseActions';
+
 import './style.css';
 
 class GameStats extends React.Component {
@@ -21,12 +24,12 @@ class GameStats extends React.Component {
 
 class GameOutput extends React.Component {
 	render () {
-		const output = this.props.output;
+		const output = this.props.output.map((action) => <p key={Math.random()}>{action}</p>);
 
 		return (
 			<div className="ui column raised container">
 				<h1 className="ui header">Game Output</h1>
-				<p className="game-output">{output}</p>
+				<div className="game-output">{output}</div>
 			</div>
 		);
 	}
@@ -44,21 +47,6 @@ class UmpireActions extends React.Component {
 					<button className="ui six wide column button">- Out</button>
 					<button className="ui six wide column button">Dice Roll</button>
 					<button className="ui six wide column button">Reset Inning</button>
-				</div>
-			</div>
-		);
-	}
-}
-
-class DefenseActions extends React.Component {
-	render () {
-		return (
-			<div className="ui column raised container">
-				<h1 className="ui header">Defense Actions</h1>
-				<div className="ui grid">
-					<button className="ui six wide column button">Pitch</button>
-					<button className="ui six wide column button">Fielder</button>
-					<button className="ui six wide column button">Pick Off</button>
 				</div>
 			</div>
 		);
@@ -92,8 +80,22 @@ class GameConsole extends React.Component {
 				balls: 3,
 				outs: 2
 			},
-			output: 'It is a hit!!!!!!!!'
+			output: [
+				'Waiting on first pitch to begin the game...'
+			]
 		};
+
+		this.handleDefenseAction = this.handleDefenseAction.bind(this);
+	}
+
+	handleDefenseAction (defenseAction) {
+		this.setState((state) => {
+			const output = [
+				defenseAction,
+				...state.output
+			];
+			return { output };
+		});
 	}
 
 	render () {
@@ -101,7 +103,7 @@ class GameConsole extends React.Component {
 			<div>
 				<div className="ui four column grid container segment">
 					<OffenseActions />
-					<DefenseActions />
+					<DefenseActions onDefenseAction={this.handleDefenseAction} />
 					<UmpireActions />
 				</div>
 				<div className="ui four column centered grid container segment">
