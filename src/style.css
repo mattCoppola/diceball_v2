@@ -1,0 +1,13 @@
+button.ui.button {
+	margin: .75rem;
+}
+
+h1.header {
+	text-align: center;
+}
+
+.game-output {
+	max-height: 200px;
+	width: 350px;
+	overflow: auto;
+}
