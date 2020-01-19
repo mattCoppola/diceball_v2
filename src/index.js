@@ -4,6 +4,7 @@ import ReactDom from 'react-dom';
 // Import Components
 import DefenseActions from './components/DefenseActions';
 import OffenseActions from './components/OffenseActions';
+import UmpireActions from './components/UmpireActions';
 import GameOutput from './components/GameOutput';
 
 import './style.css';
@@ -24,34 +25,16 @@ class GameStats extends React.Component {
 	}
 }
 
-class UmpireActions extends React.Component {
-	render () {
-		return (
-			<div className="ui column raised container">
-				<h1 className="ui header">Umpire Actions</h1>
-				<div className="ui grid">
-					<button className="ui six wide column button">+ Inning</button>
-					<button className="ui six wide column button">- Inning</button>
-					<button className="ui six wide column button">+ Out</button>
-					<button className="ui six wide column button">- Out</button>
-					<button className="ui six wide column button">Dice Roll</button>
-					<button className="ui six wide column button">Reset Inning</button>
-				</div>
-			</div>
-		);
-	}
-}
-
 class GameConsole extends React.Component {
 	constructor (props) {
 		super(props);
 
 		this.state = {
 			stats: {
-				inning: 8,
-				strikes: 2,
-				balls: 3,
-				outs: 2
+				inning: 0,
+				strikes: 0,
+				balls: 0,
+				outs: 0
 			},
 			output: [
 				'Waiting on first pitch to begin the game...'
@@ -60,6 +43,7 @@ class GameConsole extends React.Component {
 
 		this.handleDefenseAction = this.handleDefenseAction.bind(this);
 		this.handleOffenseAction = this.handleOffenseAction.bind(this);
+		this.handleUmpireAction = this.handleUmpireAction.bind(this);
 	}
 
 	handleDefenseAction (defenseAction) {
@@ -84,13 +68,29 @@ class GameConsole extends React.Component {
 		});
 	}
 
+	handleUmpireAction (umpireAction) {
+		let umpire = '[UMP >>> ]';
+		this.setState((state) => {
+			const output = [
+				umpire.concat(umpireAction.output),
+				...state.output
+			];
+			if (umpireAction.inning) {
+				state.stats.inning += umpireAction.inning;
+			} else if (umpireAction.out) {
+				state.stats.outs += umpireAction.out;
+			}
+			return { output };
+		});
+	}
+
 	render () {
 		return (
 			<div>
 				<div className="ui four column grid container segment">
 					<OffenseActions onOffenseAction={this.handleOffenseAction} />
 					<DefenseActions onDefenseAction={this.handleDefenseAction} />
-					<UmpireActions />
+					<UmpireActions onUmpireAction={this.handleUmpireAction} />
 				</div>
 				<div className="ui four column centered grid container segment">
 					<GameOutput output={this.state.output} />
