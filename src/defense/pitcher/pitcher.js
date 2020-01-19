@@ -1,8 +1,12 @@
 import randomDiceRoll from '../../diceroll/diceroll';
 
 const pitch = () => {
-	const result = randomDiceRoll();
-	return `Pitcher throws a ${result}`;
+	const roll = randomDiceRoll();
+	const result = {
+		text: `Pitcher throws a ${roll}`,
+		roll: roll
+	};
+	return result;
 };
 
 export default pitch;

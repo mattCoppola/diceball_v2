@@ -8,7 +8,10 @@ import UmpireActions from './components/UmpireActions';
 import GameOutput from './components/GameOutput';
 import GameStats from './components/GameStats';
 
+import { umpIndicator, pitchCount } from './umpire/pitchLogic';
+
 import './style.css';
+// import pitch from './defense/pitcher/pitcher';
 
 class GameConsole extends React.Component {
 	constructor (props) {
@@ -34,10 +37,55 @@ class GameConsole extends React.Component {
 	handleDefenseAction (defenseAction) {
 		let defense = '[DEF >>> ] ';
 		this.setState((state) => {
+			let pitchResults = pitchCount(defenseAction.roll, this.state.stats);
+
+			// const pitch = defenseAction.roll;
+			// let pitchCall = '';
+
+			// if (pitch === 6) {
+			// 	state.stats.balls = 0;
+			// 	state.stats.strikes = 0;
+			// 	pitchCall = 'Hit! Resetting balls and strikes.';
+			// } else if (pitch < 6 && pitch > 3) {
+			// 	state.stats.balls += 1;
+			// 	pitchCall = 'Ball!';
+			// } else if (pitch < 4 && pitch > 1 && state.stats.strikes !== 2) {
+			// 	state.stats.strikes += 1;
+			// 	pitchCall = 'Foul Ball!';
+			// } else if (pitch < 4 && pitch > 1) {
+			// 	pitchCall = 'Foul Ball!';
+			// } else if (pitch === 1) {
+			// 	state.stats.strikes += 1;
+			// 	pitchCall = 'Strike!';
+			// }
+
+			state.stats.balls = pitchResults.balls;
+			state.stats.strikes = pitchResults.strikes;
+			let pitchCall = pitchResults.pitchCall;
+
+			const currentBatter = umpIndicator(this.state.stats);
+			const batterReset = 'resetting balls and strikes based on umpIndicator...';
+
+			if (currentBatter.walk || currentBatter.strikeout) {
+				state.stats.balls = 0;
+				state.stats.strikes = 0;
+			}
+
 			const output = [
-				defense.concat(defenseAction),
+				!currentBatter.text
+					? defense.concat(defenseAction.text, ' -- ', pitchCall)
+					: defense.concat(
+							defenseAction.text,
+							' -- ',
+							pitchCall,
+							' -- ',
+							currentBatter.text,
+							' -- ',
+							batterReset
+						),
 				...state.output
 			];
+
 			return { output };
 		});
 	}
