@@ -3,6 +3,7 @@ import randomDiceRoll from '../../diceroll/diceroll';
 const pitch = () => {
 	const roll = randomDiceRoll();
 	const result = {
+		defenseType: 'pitcher',
 		text: `Pitcher throws a ${roll}`,
 		roll: roll
 	};

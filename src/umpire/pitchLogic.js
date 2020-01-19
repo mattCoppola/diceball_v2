@@ -1,5 +1,5 @@
 export const umpIndicator = (gameStats) => {
-	const { balls, strikes, outs } = gameStats;
+	const { balls, strikes } = gameStats;
 	const update = {
 		text: '',
 		walk: false,
@@ -18,12 +18,11 @@ export const umpIndicator = (gameStats) => {
 };
 
 export const pitchCount = (pitch, gameStats) => {
-	// need access to defenseAction.roll to determine pitch
-	// need if statementst to determine pitchCount status and text
+	const { balls, strikes } = gameStats;
 
 	const update = {
-		balls: gameStats.balls,
-		strikes: gameStats.strikes,
+		balls: balls,
+		strikes: strikes,
 		pitchCall: ''
 	};
 
