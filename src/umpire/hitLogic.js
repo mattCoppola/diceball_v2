@@ -1,0 +1,42 @@
+export function hitLocation (roll) {
+	let hitLocation = {
+		1: 'OUT',
+		2: 'HIT',
+		3: 'HIT',
+		4: 'HIT',
+		5: 'HIT',
+		6: 'HIT',
+		7: 'OUT',
+		8: 'HIT',
+		9: 'OUT',
+		10: 'HIT',
+		11: 'HIT',
+		12: 'HIT',
+		13: 'HIT',
+		14: 'HIT',
+		15: 'HIT',
+		16: 'HIT',
+		17: 'OUT',
+		18: 'OUT',
+		19: 'OUT',
+		20: 'OUT',
+		21: 'OUT',
+		22: 'OUT',
+		23: 'HIT',
+		24: 'HIT',
+		25: 'HIT',
+		26: 'HIT',
+		27: 'HOME RUN',
+		28: 'HOME RUN',
+		29: 'HOME RUN',
+		30: 'HOME RUN',
+		31: 'HOME RUN',
+		32: 'HOME RUN',
+		33: 'HOME RUN',
+		34: 'HOME RUN',
+		35: 'HOME RUN',
+		36: 'HOME RUN'
+	};
+
+	return hitLocation[roll];
+}

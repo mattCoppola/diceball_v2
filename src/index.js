@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 
 // Import Components
 import DefenseActions from './components/DefenseActions';
+import OffenseActions from './components/OffenseActions';
 import GameOutput from './components/GameOutput';
 
 import './style.css';
@@ -41,22 +42,6 @@ class UmpireActions extends React.Component {
 	}
 }
 
-class OffenseActions extends React.Component {
-	render () {
-		return (
-			<div className="ui column raised container">
-				<h1 className="ui header">Offense Actions</h1>
-				<div className="ui grid">
-					<button className="ui six wide column button">Hit</button>
-					<button className="ui six wide column button">Runner</button>
-					<button className="ui six wide column button">Steal</button>
-					<button className="ui six wide column button">Hit&Run</button>
-				</div>
-			</div>
-		);
-	}
-}
-
 class GameConsole extends React.Component {
 	constructor (props) {
 		super(props);
@@ -74,6 +59,7 @@ class GameConsole extends React.Component {
 		};
 
 		this.handleDefenseAction = this.handleDefenseAction.bind(this);
+		this.handleOffenseAction = this.handleOffenseAction.bind(this);
 	}
 
 	handleDefenseAction (defenseAction) {
@@ -87,11 +73,22 @@ class GameConsole extends React.Component {
 		});
 	}
 
+	handleOffenseAction (offenseAction) {
+		let offense = '[OFF >>> ] ';
+		this.setState((state) => {
+			const output = [
+				offense.concat(offenseAction),
+				...state.output
+			];
+			return { output };
+		});
+	}
+
 	render () {
 		return (
 			<div>
 				<div className="ui four column grid container segment">
-					<OffenseActions />
+					<OffenseActions onOffenseAction={this.handleOffenseAction} />
 					<DefenseActions onDefenseAction={this.handleDefenseAction} />
 					<UmpireActions />
 				</div>
