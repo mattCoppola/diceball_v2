@@ -6,7 +6,7 @@ const fielder = () => {
 	const roll = randomDiceRoll();
 	const result = {
 		defenseType: 'fielder',
-		text: `Fielder throws a ${roll}`,
+		text: `Fielder rolls >>> [${roll}]`,
 		roll: roll
 	};
 	return result;

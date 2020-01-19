@@ -34,7 +34,7 @@ class GameConsole extends React.Component {
 	}
 
 	handleDefenseAction (defenseAction) {
-		let defense = '[DEF >>> ] ';
+		let defense = '[ DEFENSE ] ';
 
 		if (defenseAction.defenseType === 'fielder' || defenseAction.defenseType === 'pick-off') {
 			this.setState((state) => {
@@ -63,7 +63,7 @@ class GameConsole extends React.Component {
 
 				const output = [
 					!currentBatter.text
-						? defense.concat(defenseAction.text, ' -- ', pitchCall)
+						? defense.concat(defenseAction.text, ' >>> ', pitchCall)
 						: defense.concat(
 								defenseAction.text,
 								' -- ',
@@ -82,7 +82,7 @@ class GameConsole extends React.Component {
 	}
 
 	handleOffenseAction (offenseAction) {
-		let offense = '[OFF >>> ] ';
+		let offense = '[ OFFENSE ] ';
 		this.setState((state) => {
 			const output = [
 				offense.concat(offenseAction),
@@ -93,7 +93,7 @@ class GameConsole extends React.Component {
 	}
 
 	handleUmpireAction (umpireAction) {
-		let umpire = '[UMP >>> ]';
+		let umpire = '[ UMPIRE ] ';
 		this.setState((state) => {
 			const output = [
 				umpire.concat(umpireAction.output),

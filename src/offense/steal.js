@@ -8,7 +8,7 @@ const baseSteal = () => {
 	// console.log(`Steal Attempt! [${dice}]`);
 	// console.log("You rolled: ", dice.reduce((a,b) => a + b));
 
-	return `Steal Attempt! [${dice}], Total: ${dice.reduce((a, b) => a + b)}`;
+	return `Steal Attempt! >>> [${dice}], Total: ${dice.reduce((a, b) => a + b)}`;
 };
 
 export default baseSteal;

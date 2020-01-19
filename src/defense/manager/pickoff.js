@@ -4,7 +4,7 @@ const pickOff = () => {
 	const roll = randomDiceRoll();
 	const result = {
 		defenseType: 'pick-off',
-		text: `Pick Off Attempt! Catcher rolls a ${roll}`,
+		text: `Pick Off Attempt! Catcher rolls >>> [${roll}]`,
 		roll: roll
 	};
 	return result;

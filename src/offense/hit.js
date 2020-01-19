@@ -27,7 +27,7 @@ const hit = () => {
 	}
 
 	let diceTotal = dice.reduce((a, b) => a + b);
-	let result = `Batter rolls a ${diceTotal}, which is a ${hitLocation(diceTotal)}`;
+	let result = `Batter rolls >>> [${diceTotal}] >>> ${hitLocation(diceTotal)}`;
 
 	return result;
 };

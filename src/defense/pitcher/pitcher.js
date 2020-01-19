@@ -4,7 +4,7 @@ const pitch = () => {
 	const roll = randomDiceRoll();
 	const result = {
 		defenseType: 'pitcher',
-		text: `Pitcher throws a ${roll}`,
+		text: `Pitcher throws >>> [${roll}]`,
 		roll: roll
 	};
 	return result;
