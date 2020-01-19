@@ -6,24 +6,9 @@ import DefenseActions from './components/DefenseActions';
 import OffenseActions from './components/OffenseActions';
 import UmpireActions from './components/UmpireActions';
 import GameOutput from './components/GameOutput';
+import GameStats from './components/GameStats';
 
 import './style.css';
-
-class GameStats extends React.Component {
-	render () {
-		const stats = this.props.stats;
-
-		return (
-			<div className="ui column raised container">
-				<h1 className="ui header">Game Stats</h1>
-				<p>Inning: {stats.inning}</p>
-				<p>Strikes: {stats.strikes}</p>
-				<p>Balls: {stats.balls}</p>
-				<p>Outs: {stats.outs}</p>
-			</div>
-		);
-	}
-}
 
 class GameConsole extends React.Component {
 	constructor (props) {
@@ -76,9 +61,9 @@ class GameConsole extends React.Component {
 				...state.output
 			];
 			if (umpireAction.inning) {
-				state.stats.inning += umpireAction.inning;
+				state.stats.inning < 0 ? (state.stats.inning = 0) : (state.stats.inning += umpireAction.inning);
 			} else if (umpireAction.out) {
-				state.stats.outs += umpireAction.out;
+				state.stats.outs < 0 ? (state.stats.outs = 0) : (state.stats.outs += umpireAction.out);
 			}
 			return { output };
 		});
