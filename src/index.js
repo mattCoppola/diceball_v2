@@ -37,17 +37,23 @@ class GameConsole extends React.Component {
 	componentDidUpdate () {
 		let endOfInning = outsTracker(this.state.stats.outs);
 		if (endOfInning) {
-			console.log(this.state.stats.outs);
+			let inningOver = "[ UMPIRE ] Three outs.  Inning is over.  Click 'Pitch' to start new Inning.";
 			this.setState((state) => {
 				state.stats.outs = 0;
 				state.stats.inning += 0.5;
 				state.stats.strikes = 0;
 				state.stats.balls = 0;
+
+				const output = [
+					inningOver,
+					...state.output
+				];
+				return { output };
 			});
-			console.log(this.state.stats.outs);
-		} else {
-			console.log('waiting for three outs...');
 		}
+		// else {
+		// 	console.log('waiting for three outs...');
+		// }
 	}
 
 	handleDefenseAction (defenseAction) {
