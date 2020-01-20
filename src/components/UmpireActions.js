@@ -39,7 +39,7 @@ class UmpireActions extends React.Component {
 	}
 
 	handleInningResetAction () {
-		let result = { output: 'Resetting Inning Placeholder - not funtional yet' };
+		let result = { output: 'Resetting Inning', resetInning: true };
 		this.props.onUmpireAction(result);
 	}
 

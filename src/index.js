@@ -9,6 +9,7 @@ import GameOutput from './components/GameOutput';
 import GameStats from './components/GameStats';
 
 import { umpIndicator, pitchCount } from './umpire/pitchLogic';
+import { outsTracker } from './umpire/gameFlow';
 
 import './style.css';
 
@@ -18,7 +19,7 @@ class GameConsole extends React.Component {
 
 		this.state = {
 			stats: {
-				inning: 0,
+				inning: 0.5,
 				strikes: 0,
 				balls: 0,
 				outs: 0
@@ -31,6 +32,22 @@ class GameConsole extends React.Component {
 		this.handleDefenseAction = this.handleDefenseAction.bind(this);
 		this.handleOffenseAction = this.handleOffenseAction.bind(this);
 		this.handleUmpireAction = this.handleUmpireAction.bind(this);
+	}
+
+	componentDidUpdate () {
+		let endOfInning = outsTracker(this.state.stats.outs);
+		if (endOfInning) {
+			console.log(this.state.stats.outs);
+			this.setState((state) => {
+				state.stats.outs = 0;
+				state.stats.inning += 0.5;
+				state.stats.strikes = 0;
+				state.stats.balls = 0;
+			});
+			console.log(this.state.stats.outs);
+		} else {
+			console.log('waiting for three outs...');
+		}
 	}
 
 	handleDefenseAction (defenseAction) {
@@ -46,7 +63,6 @@ class GameConsole extends React.Component {
 			});
 		} else if (defenseAction.defenseType === 'pitcher') {
 			this.setState((state) => {
-				//
 				let pitchResults = pitchCount(defenseAction.roll, this.state.stats);
 
 				state.stats.balls = pitchResults.balls;
@@ -59,6 +75,10 @@ class GameConsole extends React.Component {
 				if (currentBatter.walk || currentBatter.strikeout) {
 					state.stats.balls = 0;
 					state.stats.strikes = 0;
+				}
+
+				if (currentBatter.strikeout === true) {
+					state.stats.outs += 1;
 				}
 
 				const output = [
@@ -94,6 +114,7 @@ class GameConsole extends React.Component {
 
 	handleUmpireAction (umpireAction) {
 		let umpire = '[ UMPIRE ] ';
+
 		this.setState((state) => {
 			const output = [
 				umpire.concat(umpireAction.output),
@@ -103,6 +124,10 @@ class GameConsole extends React.Component {
 				state.stats.inning < 0 ? (state.stats.inning = 0) : (state.stats.inning += umpireAction.inning);
 			} else if (umpireAction.out) {
 				state.stats.outs < 0 ? (state.stats.outs = 0) : (state.stats.outs += umpireAction.out);
+			} else if (umpireAction.resetInning) {
+				state.stats.outs = 0;
+				state.stats.balls = 0;
+				state.stats.strikes = 0;
 			}
 			return { output };
 		});
