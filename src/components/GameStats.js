@@ -19,10 +19,12 @@ class GameStats extends React.Component {
 		return (
 			<div className="ui column raised container">
 				<h1 className="ui header">Game Stats</h1>
-				<p>{inning}</p>
-				<p>Strikes: {stats.strikes}</p>
-				<p>Balls: {stats.balls}</p>
-				<p>Outs: {stats.outs <= 0 ? 0 : stats.outs}</p>
+				<div className="game-stats">
+					<p>{inning}</p>
+					<p>Strikes: {stats.strikes}</p>
+					<p>Balls: {stats.balls}</p>
+					<p>Outs: {stats.outs <= 0 ? 0 : stats.outs}</p>
+				</div>
 			</div>
 		);
 	}

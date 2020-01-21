@@ -142,12 +142,13 @@ class GameConsole extends React.Component {
 	render () {
 		return (
 			<div>
+				<header>Diceball!</header>
 				<div className="ui four column grid container segment">
 					<OffenseActions onOffenseAction={this.handleOffenseAction} />
 					<DefenseActions onDefenseAction={this.handleDefenseAction} />
 					<UmpireActions onUmpireAction={this.handleUmpireAction} />
 				</div>
-				<div className="ui four column centered grid container segment">
+				<div className="ui two column centered grid container segment">
 					<GameOutput output={this.state.output} />
 					<GameStats stats={this.state.stats} />
 				</div>
