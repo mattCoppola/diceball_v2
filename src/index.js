@@ -141,6 +141,9 @@ class GameConsole extends React.Component {
 			} else if (umpireAction.strike) {
 				state.stats.strikes < 0 ? (state.stats.strikes = 0) : (state.stats.strikes += umpireAction.strike);
 				state.umpireOverwrite = true;
+			} else if (umpireAction.ball) {
+				state.stats.balls < 0 ? (state.stats.balls = 0) : (state.stats.balls += umpireAction.ball);
+				state.umpireOverwrite = true;
 			} else if (umpireAction.resetInning) {
 				state.stats.outs = 0;
 				state.stats.balls = 0;
