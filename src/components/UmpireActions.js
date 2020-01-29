@@ -11,6 +11,8 @@ class UmpireActions extends React.Component {
 		this.handleSubtractOutAction = this.handleSubtractOutAction.bind(this);
 		this.handleDiceRollAction = this.handleDiceRollAction.bind(this);
 		this.handleInningResetAction = this.handleInningResetAction.bind(this);
+		this.handleAddStrikeAction = this.handleAddStrikeAction.bind(this);
+		this.handleSubtractStrikeAction = this.handleSubtractStrikeAction.bind(this);
 	}
 
 	handleAddInningAction () {
@@ -30,6 +32,16 @@ class UmpireActions extends React.Component {
 
 	handleSubtractOutAction () {
 		let result = { output: 'Out Subtracted.', out: -1 };
+		this.props.onUmpireAction(result);
+	}
+
+	handleAddStrikeAction () {
+		let result = { output: 'Strike Added', strike: 1 };
+		this.props.onUmpireAction(result);
+	}
+
+	handleSubtractStrikeAction () {
+		let result = { output: 'Strike Subtracted', strike: -1 };
 		this.props.onUmpireAction(result);
 	}
 
@@ -59,6 +71,12 @@ class UmpireActions extends React.Component {
 					</button>
 					<button onClick={this.handleSubtractOutAction} className="ui six wide column button">
 						- Out
+					</button>
+					<button onClick={this.handleAddStrikeAction} className="ui six wide column button">
+						+ Strike
+					</button>
+					<button onClick={this.handleSubtractStrikeAction} className="ui six wide column button">
+						- Strike
 					</button>
 					<button onClick={this.handleDiceRollAction} className="ui six wide column button">
 						Dice Roll
