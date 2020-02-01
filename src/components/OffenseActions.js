@@ -36,7 +36,8 @@ class OffenseActions extends React.Component {
 
 	render () {
 		return (
-			<div className="ui column raised container">
+			// <div className="ui column raised container">
+			<div className="offense-actions">
 				<h1 className="ui header">Offense Actions</h1>
 				<div className="ui grid">
 					<button onClick={this.handleHitAction} className="ui six wide column button">

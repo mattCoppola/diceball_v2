@@ -27,7 +27,8 @@ class GameOutput extends React.Component {
 		});
 
 		return (
-			<div className="ui column raised container">
+			// <div className="ui column raised container">
+			<div className="gamelog">
 				<h1 className="ui header">Game Output</h1>
 				<div className="game-output">{output}</div>
 			</div>

@@ -69,7 +69,8 @@ class UmpireActions extends React.Component {
 
 	render () {
 		return (
-			<div className="ui column raised container">
+			// <div className="ui column raised container">
+			<div className="umpire-actions">
 				<h1 className="ui header">Umpire Actions</h1>
 				<div className="ui grid">
 					<button onClick={this.handleAddInningAction} className="ui six wide column button">

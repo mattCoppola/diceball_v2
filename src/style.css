@@ -9,7 +9,65 @@ header {
 	margin-top: 2rem;
 	margin-bottom: 3rem;
 }
+/* ********************************* */
 
+.gameconsole {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.actions {
+	display: flex;
+}
+
+.umpire-actions,
+.defense-actions,
+.offense-actions {
+	font-size: 80%;
+	border: solid;
+	border-radius: 5px;
+	width: 5rem;
+	height: 27rem;
+	margin-right: 1rem;
+	padding: 1rem;
+	text-align: center;
+}
+
+.umpire-actions {
+	width: 11rem;
+}
+
+button {
+	width: 60px;
+	margin: .3rem;
+	padding: .8rem;
+	border-radius: 5px;
+}
+
+.gameinfo {
+	display: flex;
+	flex-direction: column;
+}
+
+.gamelog {
+	border: solid;
+	border-radius: 5px;
+	width: 500px;
+	height: 400px;
+	text-align: center;
+	margin-left: 1rem;
+	margin-bottom: 1rem;
+}
+
+.gamestats {
+	border: solid;
+	border-radius: 5px;
+	font-size: .5rem;
+	width: 150px;
+}
+
+/* ********************************* */
 .segment.container {
 	background-color: #fefefa;
 }
@@ -24,13 +82,17 @@ h1.header {
 
 .game-output {
 	height: 250px;
+	text-align: left;
+	padding-left: 1rem;
+	padding-right: 1rem;
 	/* width: 350px; */
 	overflow: auto;
 }
 
 .game-stats {
-	padding-left: 5rem;
-	font-size: 1.3rem;
+	padding-left: .5rem;
+	font-size: 1rem;
+	text-align: left;
 }
 
 .defense {
