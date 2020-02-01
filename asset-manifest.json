@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/diceball_v2/static/css/main.a1b5c0b9.chunk.css",
-    "main.js": "/diceball_v2/static/js/main.ab496dc4.chunk.js",
-    "main.js.map": "/diceball_v2/static/js/main.ab496dc4.chunk.js.map",
+    "main.css": "/diceball_v2/static/css/main.1c5fd3e5.chunk.css",
+    "main.js": "/diceball_v2/static/js/main.8fa69ac2.chunk.js",
+    "main.js.map": "/diceball_v2/static/js/main.8fa69ac2.chunk.js.map",
     "runtime-main.js": "/diceball_v2/static/js/runtime-main.a8b0ea6d.js",
     "runtime-main.js.map": "/diceball_v2/static/js/runtime-main.a8b0ea6d.js.map",
     "static/js/2.89a86323.chunk.js": "/diceball_v2/static/js/2.89a86323.chunk.js",
     "static/js/2.89a86323.chunk.js.map": "/diceball_v2/static/js/2.89a86323.chunk.js.map",
     "index.html": "/diceball_v2/index.html",
-    "precache-manifest.4893f335ff7ae8cd8603b9c7f3a7f80d.js": "/diceball_v2/precache-manifest.4893f335ff7ae8cd8603b9c7f3a7f80d.js",
+    "precache-manifest.6a671d783d9c0a83e0f33941ac7179bc.js": "/diceball_v2/precache-manifest.6a671d783d9c0a83e0f33941ac7179bc.js",
     "service-worker.js": "/diceball_v2/service-worker.js",
-    "static/css/main.a1b5c0b9.chunk.css.map": "/diceball_v2/static/css/main.a1b5c0b9.chunk.css.map",
+    "static/css/main.1c5fd3e5.chunk.css.map": "/diceball_v2/static/css/main.1c5fd3e5.chunk.css.map",
     "static/js/2.89a86323.chunk.js.LICENSE": "/diceball_v2/static/js/2.89a86323.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.a8b0ea6d.js",
     "static/js/2.89a86323.chunk.js",
-    "static/css/main.a1b5c0b9.chunk.css",
-    "static/js/main.ab496dc4.chunk.js"
+    "static/css/main.1c5fd3e5.chunk.css",
+    "static/js/main.8fa69ac2.chunk.js"
   ]
 }
