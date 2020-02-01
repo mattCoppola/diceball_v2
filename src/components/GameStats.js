@@ -19,7 +19,7 @@ class GameStats extends React.Component {
 		return (
 			// <div className="ui column raised container">
 			<div className="gamestats">
-				<h1 className="ui header">Game Stats</h1>
+				<h1>Game Stats</h1>
 				<div className="game-stats">
 					<p>{inning}</p>
 					<p>Strikes: {stats.strikes}</p>

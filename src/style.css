@@ -1,11 +1,13 @@
 body {
-	background-color: #f8f8ff;
+	background-color: rgb(250, 250, 250);
+	font-size: 12px;
 }
 
 header {
 	font-family: 'bangers', 'cursive';
 	text-align: center;
-	font-size: 3rem;
+	font-size: 300%;
+	letter-spacing: .2rem;
 	margin-top: 2rem;
 	margin-bottom: 3rem;
 }
@@ -19,6 +21,23 @@ header {
 
 .actions {
 	display: flex;
+	background-color: rgb(250, 250, 250);
+}
+
+.actions h1,
+.gamestats h1,
+.gamelog h1 {
+	font-size: 150%;
+	text-align: center;
+	height: 40px;
+	margin: 0;
+	padding-top: .7rem;
+	background-color: #2196f3;
+	color: white;
+}
+
+.action-card {
+	padding-top: 1rem;
 }
 
 .umpire-actions,
@@ -30,8 +49,8 @@ header {
 	width: 5rem;
 	height: 27rem;
 	margin-right: 1rem;
-	padding: 1rem;
 	text-align: center;
+	background-color: #fff;
 }
 
 .umpire-actions {
@@ -39,10 +58,21 @@ header {
 }
 
 button {
-	width: 60px;
+	width: 70px;
+	height: 50px;
+	text-align: center;
 	margin: .3rem;
 	padding: .8rem;
 	border-radius: 5px;
+	/* background-color: rgb(231, 230, 230); */
+	color: #fff;
+	transition-delay: .1s;
+	background-color: #80bcee;
+}
+
+button:hover {
+	background-color: rgb(255, 255, 255);
+	color: black;
 }
 
 .gameinfo {
@@ -58,34 +88,35 @@ button {
 	text-align: center;
 	margin-left: 1rem;
 	margin-bottom: 1rem;
+	background-color: #fff;
 }
 
 .gamestats {
 	border: solid;
 	border-radius: 5px;
-	font-size: .5rem;
 	width: 150px;
+	background-color: #fff;
 }
 
 /* ********************************* */
-.segment.container {
+/* .segment.container {
 	background-color: #fefefa;
-}
-
+} */
+/* 
 button.ui.button {
 	margin: .75rem;
-}
+} */
 
-h1.header {
+/* h1.header {
 	text-align: center;
-}
+} */
 
 .game-output {
-	height: 250px;
+	height: 310px;
 	text-align: left;
 	padding-left: 1rem;
 	padding-right: 1rem;
-	/* width: 350px; */
+	background-color: #fff;
 	overflow: auto;
 }
 

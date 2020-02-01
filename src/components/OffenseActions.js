@@ -38,8 +38,8 @@ class OffenseActions extends React.Component {
 		return (
 			// <div className="ui column raised container">
 			<div className="offense-actions">
-				<h1 className="ui header">Offense Actions</h1>
-				<div className="ui grid">
+				<h1>Offense Actions</h1>
+				<div className="action-card">
 					<button onClick={this.handleHitAction} className="ui six wide column button">
 						Hit
 					</button>
@@ -50,7 +50,7 @@ class OffenseActions extends React.Component {
 						Steal
 					</button>
 					<button onClick={this.handleHitAndRunAction} className="ui six wide column button">
-						Hit&Run
+						Hit & Run
 					</button>
 				</div>
 			</div>
