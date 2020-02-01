@@ -11,9 +11,9 @@ class GameStats extends React.Component {
 		if (stats.inning <= 0) {
 			inning = 'Inning:  Waiting for First Pitch';
 		} else if (!Number.isInteger(stats.inning)) {
-			inning = `Inning: Top of ${stats.inning + 0.5}`;
+			inning = `  Top of ${stats.inning + 0.5}`;
 		} else {
-			inning = `Inning: Bottom of ${stats.inning}`;
+			inning = `  Bottom of ${stats.inning}`;
 		}
 
 		return (
@@ -21,10 +21,19 @@ class GameStats extends React.Component {
 			<div className="gamestats">
 				<h1>Game Stats</h1>
 				<div className="game-stats">
+					<p>
+						<b>Inning:</b>
+					</p>
 					<p>{inning}</p>
-					<p>Strikes: {stats.strikes}</p>
-					<p>Balls: {stats.balls}</p>
-					<p>Outs: {stats.outs <= 0 ? 0 : stats.outs}</p>
+					<p>
+						<b>Strikes:</b> {stats.strikes}
+					</p>
+					<p>
+						<b>Balls:</b> {stats.balls}
+					</p>
+					<p>
+						<b>Outs:</b> {stats.outs <= 0 ? 0 : stats.outs}
+					</p>
 				</div>
 			</div>
 		);
