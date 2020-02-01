@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "da8e3982fece23e2625a21b04622258a",
+    "revision": "4cbf90a13e993022a1478e0db1dc0c23",
     "url": "/diceball_v2/index.html"
   },
   {
-    "revision": "279ab03dfcf498378f85",
-    "url": "/diceball_v2/static/css/main.ab6883db.chunk.css"
+    "revision": "3533c4ca78ccde3ab11a",
+    "url": "/diceball_v2/static/css/main.1da4b27b.chunk.css"
   },
   {
     "revision": "281d8e91ff9d4ac08169",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/diceball_v2/static/js/2.89a86323.chunk.js.LICENSE"
   },
   {
-    "revision": "279ab03dfcf498378f85",
-    "url": "/diceball_v2/static/js/main.bea9cb10.chunk.js"
+    "revision": "3533c4ca78ccde3ab11a",
+    "url": "/diceball_v2/static/js/main.197f5dca.chunk.js"
   },
   {
     "revision": "118bcff4be1faac87631",
